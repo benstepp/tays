@@ -1,4 +1,4 @@
-import { Association } from '../../lib/associations'
+import { Association } from '../../lib/decorators/associations'
 import { DecoratorManager } from '../../lib/decorators/decorator_manager'
 import { includes } from 'lodash'
 
