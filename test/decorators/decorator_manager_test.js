@@ -1,4 +1,4 @@
-import { Association } from '../../lib/decorators/associations'
+import { Definition } from '../../lib/decorators/definitions'
 import { DecoratorManager } from '../../lib/decorators/decorator_manager'
 import { includes } from 'lodash'
 
@@ -11,7 +11,7 @@ describe('DecoratorManager', () => {
 
   describe('#add_association', () => {
     it('adds an association to the list', () => {
-      const association = new Association()
+      const association = new Definition()
       const manager = new DecoratorManager()
       manager.add_association(association)
       expect(includes(manager.associations, association)).to.eq(true)
