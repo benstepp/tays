@@ -18,7 +18,11 @@
     "coverage": "node_modules/.bin/istanbul cover _mocha -- 'test/**/*_test.js' --harmony-proxies --reporter dot --require test/test_helper.js; open coverage/lcov-report/index.html",
     "prepublish": "npm run test && npm run build"
   },
-  "keywords": ["orm", "database", "active record"],
+  "keywords": [
+    "orm",
+    "database",
+    "active record"
+  ],
   "author": "Benjamin Stepp <me@benstepp.com> (http://fightingdragonswithtaylorswift.com/)",
   "license": "MIT",
   "devDependencies": {
@@ -36,6 +40,7 @@
     "sinon": "^1.17.3"
   },
   "dependencies": {
+    "i": "^0.3.4",
     "lodash": "^4.6.0"
   }
 }
