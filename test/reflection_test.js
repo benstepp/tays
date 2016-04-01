@@ -1,4 +1,4 @@
-import { ActiveRecord } from '../lib'
+import { ActiveRecord, belongs_to, has_many } from '../lib'
 import { Reflection } from '../lib/reflection'
 import { BelongsToDefinition } from '../lib/decorators/definitions'
 
@@ -36,6 +36,33 @@ describe('Reflection', () => {
     it('returns undefined for nonexistent associations', () => {
       class Post extends ActiveRecord.Base {}
       expect(Post.reflect_on_association('user')).to.not.exist
+    })
+  })
+
+  describe('#reflect_on_all_associations', () => {
+    it('returns an array', () => {
+      class Post extends ActiveRecord.Base {}
+      expect(Post.reflect_on_all_associations()).to.be.a('array')
+    })
+
+    it('returns all associations', () => {
+    class Role extends ActiveRecord.Base {}
+    const _Role = ActiveRecord(Role).default
+
+    class Post extends ActiveRecord.Base {}
+    const _Post = ActiveRecord(Post).default
+
+    class User extends ActiveRecord.Base {
+      @belongs_to('role')
+      @has_many('posts')
+      noop() {}
+    }
+    const _User = ActiveRecord(User).default
+
+    expect(_User.reflect_on_all_associations().length).to.eq(2)
+    expect(_User.reflect_on_all_associations('belongs_to').length).to.eq(1)
+    expect(_User.reflect_on_all_associations('has_many').length).to.eq(1)
+    expect(_User.reflect_on_all_associations('has_one').length).to.eq(0)
     })
   })
 })
