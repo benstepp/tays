@@ -40,6 +40,8 @@
     "sinon": "^1.17.3"
   },
   "dependencies": {
+    "bluebird": "^3.3.4",
+    "glob": "^7.0.3",
     "i": "^0.3.4",
     "lodash": "^4.6.0"
   }
