@@ -4,8 +4,8 @@ import { feature } from '../support'
 describe('Select AVG ', () => {
   describe('simple avg', () => {
     const users = new Sequel.Relation('users')
-    const avg = users.project(users.column('age').avg())
-    const average = users.project(users.column('age').average())
+    const avg = users.project(users.attribute('age').avg())
+    const average = users.project(users.attribute('age').average())
 
     feature({
       ast: [avg, average],
@@ -15,8 +15,8 @@ describe('Select AVG ', () => {
 
   describe('aliased avg', () => {
     const users = new Sequel.Relation('users')
-    const avg = users.project(users.column('age').avg().as('mean_age'))
-    const average = users.project(users.column('age').average().as('mean_age'))
+    const avg = users.project(users.attribute('age').avg().as('mean_age'))
+    const average = users.project(users.attribute('age').average().as('mean_age'))
 
     feature({
       ast: [avg, average],

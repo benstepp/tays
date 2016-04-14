@@ -5,10 +5,10 @@ describe('LEFT JOIN:', () => {
   describe('simple join', () => {
     const users = new Sequel.Relation('users')
     const posts = new Sequel.Relation('posts')
-    const ast = users.project(users.column('name'), posts.column('content'))
+    const ast = users.project(users.attribute('name'), posts.attribute('content'))
                      .from(users)
                      .left_join(posts)
-                     .on(users.column('id').equal(posts.column('user_id')))
+                     .on(users.attribute('id').equal(posts.attribute('user_id')))
 
     feature({
       ast,
@@ -20,12 +20,12 @@ describe('LEFT JOIN:', () => {
     const users = new Sequel.Relation('users')
     const posts = new Sequel.Relation('posts')
     const comments = new Sequel.Relation('comments')
-    const ast = users.project(users.column('name'), posts.column('content'), comments.column('text'))
+    const ast = users.project(users.attribute('name'), posts.attribute('content'), comments.attribute('text'))
                      .from(users)
                      .left_join(posts)
-                     .on(users.column('id').equal(posts.column('user_id')))
+                     .on(users.attribute('id').equal(posts.attribute('user_id')))
                      .left_join(comments)
-                     .on(posts.column('id').equal(comments.column('post_id')))
+                     .on(posts.attribute('id').equal(comments.attribute('post_id')))
 
     feature({
       ast,

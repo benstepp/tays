@@ -4,8 +4,8 @@ import { feature } from '../support'
 describe('Select Min ', () => {
   describe('simple min', () => {
     const users = new Sequel.Relation('users')
-    const min = users.project(users.column('age').min())
-    const minimum = users.project(users.column('age').minimum())
+    const min = users.project(users.attribute('age').min())
+    const minimum = users.project(users.attribute('age').minimum())
 
     feature({
       ast: [min, minimum],
@@ -15,8 +15,8 @@ describe('Select Min ', () => {
 
   describe('aliased min', () => {
     const users = new Sequel.Relation('users')
-    const min = users.project(users.column('age').min().as('youngest'))
-    const minimum = users.project(users.column('age').minimum().as('youngest'))
+    const min = users.project(users.attribute('age').min().as('youngest'))
+    const minimum = users.project(users.attribute('age').minimum().as('youngest'))
 
     feature({
       ast: [min, minimum],

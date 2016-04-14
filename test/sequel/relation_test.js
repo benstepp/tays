@@ -29,10 +29,10 @@ describe('Relation', () => {
     })
   })
 
-  describe('#column', () => {
+  describe('#attribute', () => {
     it('returns an Attribute', () => {
       const users = new Relation('users')
-      const col = users.column('email')
+      const col = users.attribute('email')
       expect(col).to.be.instanceof(Attribute)
     })
   })

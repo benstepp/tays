@@ -4,7 +4,7 @@ import { feature } from '../support'
 describe('IN: ', () => {
   describe('without an expression', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).where(users.column('gender').in())
+    const ast = users.project(Sequel.star).where(users.attribute('gender').in())
 
     feature({
       ast,
@@ -14,7 +14,7 @@ describe('IN: ', () => {
 
   describe('in single item array', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).where(users.column('gender').in('male'))
+    const ast = users.project(Sequel.star).where(users.attribute('gender').in('male'))
 
     feature({
       ast,
@@ -25,7 +25,7 @@ describe('IN: ', () => {
   describe('multi item array', () => {
     const users = new Sequel.Relation('users')
     const ast = users.project(Sequel.star)
-                     .where(users.column('gender')
+                     .where(users.attribute('gender')
                      .in('male', 'female', 'transgender', 'apache helicopter'))
 
     feature({
@@ -36,7 +36,7 @@ describe('IN: ', () => {
 
   describe('in bindparam', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).where(users.column('gender').in(Sequel.bind))
+    const ast = users.project(Sequel.star).where(users.attribute('gender').in(Sequel.bind))
 
     feature({
       ast,

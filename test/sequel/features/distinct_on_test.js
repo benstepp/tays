@@ -2,9 +2,9 @@ import * as Sequel from '../../../lib/sequel'
 import { feature } from '../support'
 
 describe('Select DISTINCT ON', () => {
-  describe('with multiple columns', () => {
+  describe('with multiple attributes', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('age'), users.column('power_level')).distinct_on(users.column('name'))
+    const ast = users.project(users.attribute('age'), users.attribute('power_level')).distinct_on(users.attribute('name'))
 
     feature({
       ast: [ast],
@@ -14,7 +14,7 @@ describe('Select DISTINCT ON', () => {
 
   describe('with star', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).distinct_on(users.column('name'))
+    const ast = users.project(Sequel.star).distinct_on(users.attribute('name'))
 
     feature({
       ast: [ast],
@@ -24,7 +24,7 @@ describe('Select DISTINCT ON', () => {
 
   describe('with a where clause', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).distinct_on(users.column('name')).where(users.column('age').gteq(21))
+    const ast = users.project(Sequel.star).distinct_on(users.attribute('name')).where(users.attribute('age').gteq(21))
 
     feature({
       ast: [ast],

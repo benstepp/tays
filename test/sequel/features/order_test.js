@@ -4,7 +4,7 @@ import { feature } from '../support'
 describe('Select Order', () => {
   describe('without direction', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).order(users.column('age'))
+    const ast = users.project(Sequel.star).order(users.attribute('age'))
 
     feature({
       ast: [ast],
@@ -14,8 +14,8 @@ describe('Select Order', () => {
 
   describe('with ascending', () => {
     const users = new Sequel.Relation('users')
-    const asc = users.project(Sequel.star).order(users.column('age').asc())
-    const ascending = users.project(Sequel.star).order(users.column('age').ascending())
+    const asc = users.project(Sequel.star).order(users.attribute('age').asc())
+    const ascending = users.project(Sequel.star).order(users.attribute('age').ascending())
 
     feature({
       ast: [asc, ascending],
@@ -25,8 +25,8 @@ describe('Select Order', () => {
 
   describe('with descending', () => {
     const users = new Sequel.Relation('users')
-    const desc = users.project(Sequel.star).order(users.column('age').desc())
-    const descending = users.project(Sequel.star).order(users.column('age').descending())
+    const desc = users.project(Sequel.star).order(users.attribute('age').desc())
+    const descending = users.project(Sequel.star).order(users.attribute('age').descending())
 
     feature({
       ast: [desc, descending],
@@ -36,7 +36,7 @@ describe('Select Order', () => {
 
   describe('with multiple orders', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).order(users.column('age'), users.column('cars'))
+    const ast = users.project(Sequel.star).order(users.attribute('age'), users.attribute('cars'))
 
     feature({
       ast: [ast],
@@ -46,8 +46,8 @@ describe('Select Order', () => {
 
   describe('with multiple orders and a direction', () => {
     const users = new Sequel.Relation('users')
-    const asc = users.project(Sequel.star).order(users.column('age'), users.column('cars').asc())
-    const ascending = users.project(Sequel.star).order(users.column('age'), users.column('cars').ascending())
+    const asc = users.project(Sequel.star).order(users.attribute('age'), users.attribute('cars').asc())
+    const ascending = users.project(Sequel.star).order(users.attribute('age'), users.attribute('cars').ascending())
 
     feature({
       ast: [asc, ascending],
@@ -55,10 +55,10 @@ describe('Select Order', () => {
     })
   })
 
-  describe('multiple columns and multiple directions', () => {
+  describe('multiple attributes and multiple directions', () => {
     const users = new Sequel.Relation('users')
-    const asc = users.project(Sequel.star).order(users.column('age').desc(), users.column('cars').asc())
-    const ascending = users.project(Sequel.star).order(users.column('age').descending(), users.column('cars').ascending())
+    const asc = users.project(Sequel.star).order(users.attribute('age').desc(), users.attribute('cars').asc())
+    const ascending = users.project(Sequel.star).order(users.attribute('age').descending(), users.attribute('cars').ascending())
 
     feature({
       ast: [asc, ascending],
@@ -66,9 +66,9 @@ describe('Select Order', () => {
     })
   })
 
-  describe('with column is null', () => {
+  describe('with attribute is null', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).order(users.column('age').equal(null))
+    const ast = users.project(Sequel.star).order(users.attribute('age').equal(null))
 
     feature({
       ast: [ast],

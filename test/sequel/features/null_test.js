@@ -4,7 +4,7 @@ import { feature } from '../support'
 describe('IS NULL:', () => {
   describe('is', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).where(users.column('email').equal(null))
+    const ast = users.project(Sequel.star).where(users.attribute('email').equal(null))
 
     feature({
       ast,
@@ -14,7 +14,7 @@ describe('IS NULL:', () => {
 
   describe('is not', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(Sequel.star).where(users.column('email').not_equal(null))
+    const ast = users.project(Sequel.star).where(users.attribute('email').not_equal(null))
 
     feature({
       ast,

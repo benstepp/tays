@@ -8,7 +8,7 @@ describe('INNER JOIN: ', () => {
     const ast = users.project(Sequel.star)
                      .from(users)
                      .join(drugs)
-                     .on(users.column('drug_id').equal(drugs.column('id')))
+                     .on(users.attribute('drug_id').equal(drugs.attribute('id')))
 
     feature({
       ast,
@@ -16,13 +16,13 @@ describe('INNER JOIN: ', () => {
     })
   })
 
-  describe('multi column select with join', () => {
+  describe('multi attribute select with join', () => {
     const users = new Sequel.Relation('users')
     const posts = new Sequel.Relation('posts')
-    const ast = users.project(users.column('name'), posts.column('content'))
+    const ast = users.project(users.attribute('name'), posts.attribute('content'))
                      .from(users)
                      .join(posts)
-                     .on(users.column('id').equal(posts.column('user_id')))
+                     .on(users.attribute('id').equal(posts.attribute('user_id')))
 
     feature({
       ast,
@@ -34,12 +34,12 @@ describe('INNER JOIN: ', () => {
     const users = new Sequel.Relation('users')
     const posts = new Sequel.Relation('posts')
     const comments = new Sequel.Relation('comments')
-    const ast = users.project(users.column('name'), posts.column('content'), comments.column('text'))
+    const ast = users.project(users.attribute('name'), posts.attribute('content'), comments.attribute('text'))
                      .from(users)
                      .join(posts)
-                     .on(users.column('id').equal(posts.column('user_id')))
+                     .on(users.attribute('id').equal(posts.attribute('user_id')))
                      .join(comments)
-                     .on(posts.column('id').equal(comments.column('post_id')))
+                     .on(posts.attribute('id').equal(comments.attribute('post_id')))
 
     feature({
       ast,

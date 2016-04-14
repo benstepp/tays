@@ -4,7 +4,7 @@ import { feature } from '../support'
 describe('SELECT DISTINCT', () => {
   describe('simple distinct', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('id')).distinct()
+    const ast = users.project(users.attribute('id')).distinct()
 
     feature({
       ast,
@@ -14,7 +14,7 @@ describe('SELECT DISTINCT', () => {
 
   describe('count distinct', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('id').count(true))
+    const ast = users.project(users.attribute('id').count(true))
 
     feature({
       ast,
@@ -24,7 +24,7 @@ describe('SELECT DISTINCT', () => {
 
   describe('aliased distinct count', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('id').count(true).as('counterino'))
+    const ast = users.project(users.attribute('id').count(true).as('counterino'))
 
     feature({
       ast,
@@ -32,9 +32,9 @@ describe('SELECT DISTINCT', () => {
     })
   })
 
-  describe('multi column select distinct', () => {
+  describe('multi attribute select distinct', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('id'), users.column('age')).distinct()
+    const ast = users.project(users.attribute('id'), users.attribute('age')).distinct()
 
     feature({
       ast,

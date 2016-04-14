@@ -14,7 +14,7 @@ describe('Select LIMIT ', () => {
 
   describe('limit with another number', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('blunts')).limit(420)
+    const ast = users.project(users.attribute('blunts')).limit(420)
 
     feature({
       ast: [ast],
@@ -24,8 +24,8 @@ describe('Select LIMIT ', () => {
 
   describe('limit with order by', () => {
     const users = new Sequel.Relation('users')
-    const asc = users.project(users.column('blunts')).order(users.column('email').asc()).limit(10)
-    const ascending = users.project(users.column('blunts')).order(users.column('email').ascending()).limit(10)
+    const asc = users.project(users.attribute('blunts')).order(users.attribute('email').asc()).limit(10)
+    const ascending = users.project(users.attribute('blunts')).order(users.attribute('email').ascending()).limit(10)
 
     feature({
       ast: [asc, ascending],

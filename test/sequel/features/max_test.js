@@ -4,8 +4,8 @@ import { feature } from '../support'
 describe('Select Max ', () => {
   describe('simple max', () => {
     const users = new Sequel.Relation('users')
-    const max = users.project(users.column('age').max())
-    const maximum = users.project(users.column('age').maximum())
+    const max = users.project(users.attribute('age').max())
+    const maximum = users.project(users.attribute('age').maximum())
 
     feature({
       ast: [max, maximum],
@@ -15,8 +15,8 @@ describe('Select Max ', () => {
 
   describe('aliased max', () => {
     const users = new Sequel.Relation('users')
-    const max = users.project(users.column('age').max().as('oldest'))
-    const maximum = users.project(users.column('age').maximum().as('oldest'))
+    const max = users.project(users.attribute('age').max().as('oldest'))
+    const maximum = users.project(users.attribute('age').maximum().as('oldest'))
 
     feature({
       ast: [max, maximum],

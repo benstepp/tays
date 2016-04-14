@@ -4,7 +4,7 @@ import { feature } from '../support'
 describe('Select SUM ', () => {
   describe('simple sum', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('age').sum())
+    const ast = users.project(users.attribute('age').sum())
 
     feature({
       ast,
@@ -14,7 +14,7 @@ describe('Select SUM ', () => {
 
   describe('aliased min', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('age').sum().as('age_sum'))
+    const ast = users.project(users.attribute('age').sum().as('age_sum'))
 
     feature({
       ast,

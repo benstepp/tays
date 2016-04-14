@@ -13,10 +13,10 @@ describe('Simple Select Statements', () => {
     })
   })
 
-  describe('select a single column', () => {
+  describe('select a single attribute', () => {
     const users = new Sequel.Relation('users')
-    const project = users.project(users.column('id'))
-    const select = users.select(users.column('id'))
+    const project = users.project(users.attribute('id'))
+    const select = users.select(users.attribute('id'))
 
     feature({
       ast: [project, select],
@@ -24,10 +24,10 @@ describe('Simple Select Statements', () => {
     })
   })
 
-  describe('select single column with alias', () => {
+  describe('select single attribute with alias', () => {
     const users = new Sequel.Relation('users')
-    const project = users.project(users.column('id').as('user_id'))
-    const select = users.select(users.column('id').as('user_id'))
+    const project = users.project(users.attribute('id').as('user_id'))
+    const select = users.select(users.attribute('id').as('user_id'))
 
     feature({
       ast: [project, select],
@@ -35,15 +35,15 @@ describe('Simple Select Statements', () => {
     })
   })
 
-  describe('select multiple columns', () => {
+  describe('select multiple attributes', () => {
     const users = new Sequel.Relation('users')
-    const project = users.project(users.column('id'))
-                     .project(users.column('username'))
-                     .project(users.column('email'))
+    const project = users.project(users.attribute('id'))
+                     .project(users.attribute('username'))
+                     .project(users.attribute('email'))
 
-    const select = users.select(users.column('id'))
-                     .select(users.column('username'))
-                     .select(users.column('email'))
+    const select = users.select(users.attribute('id'))
+                     .select(users.attribute('username'))
+                     .select(users.attribute('email'))
     feature({
       ast: [project, select],
       postgresql: 'SELECT "users"."id", "users"."username", "users"."email" FROM "users"'

@@ -2,9 +2,9 @@ import * as Sequel from '../../../lib/sequel'
 import { feature } from '../support'
 
 describe('GROUP BY:', () => {
-  describe('single column group', () => {
+  describe('single attribute group', () => {
     const posts = new Sequel.Relation('posts')
-    const ast = posts.project(Sequel.star).group(posts.column('user_id'))
+    const ast = posts.project(Sequel.star).group(posts.attribute('user_id'))
 
     feature({
       ast,
@@ -12,9 +12,9 @@ describe('GROUP BY:', () => {
     })
   })
 
-  describe('multi column group', () => {
+  describe('multi attribute group', () => {
     const posts = new Sequel.Relation('posts')
-    const ast = posts.project(Sequel.star).group(posts.column('user_id'), posts.column('created_at'))
+    const ast = posts.project(Sequel.star).group(posts.attribute('user_id'), posts.attribute('created_at'))
 
     feature({
       ast,

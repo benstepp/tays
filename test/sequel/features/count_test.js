@@ -12,9 +12,9 @@ describe('Select Count', () => {
     })
   })
 
-  describe('simple column count', () => {
+  describe('simple attribute count', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('age').count())
+    const ast = users.project(users.attribute('age').count())
 
     feature({
       ast,
@@ -24,7 +24,7 @@ describe('Select Count', () => {
 
   describe('aliased count', () => {
     const posts = new Sequel.Relation('posts')
-    const ast = posts.project(posts.column('author').count().as('author_count'))
+    const ast = posts.project(posts.attribute('author').count().as('author_count'))
 
     feature({
       ast,
@@ -34,7 +34,7 @@ describe('Select Count', () => {
 
   describe('distinct count', () => {
     const users = new Sequel.Relation('users')
-    const ast = users.project(users.column('age').count(true))
+    const ast = users.project(users.attribute('age').count(true))
 
     feature({
       ast,
