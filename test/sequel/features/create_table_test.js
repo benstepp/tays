@@ -16,11 +16,23 @@ describe('CREATE TABLE', () => {
   describe('with a attribute', () => {
     const users = new Sequel.Relation('users')
     const email = users.column('email').varchar(100)
-    const ast = users.create().add(email)
+    const ast = users.create().columns(email)
 
     feature({
       ast: [ast],
       postgresql: 'CREATE TABLE "users" ("email" varchar(100))'
+    })
+  })
+
+  describe('with multiple attributes', () => {
+    const users = new Sequel.Relation('users')
+    const email = users.column('email').varchar(100)
+    const created_at = users.column('created_at').date()
+    const ast = users.create().columns(email, created_at)
+
+    feature({
+      ast: [ast],
+      postgresql: 'CREATE TABLE "users" ("email" varchar(100), "created_at" timestamps)'
     })
   })
 })
