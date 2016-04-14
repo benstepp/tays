@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+import program from 'commander'
+
+let running
+
+program
+  .version('0.0.1')
+
+program
+  .command('db:migrate')
+  .description('Run outstanding database migrations')
+  .action(cmd => {
+    running = true
+    // run migrations
+  })
+
+program.parse(process.argv)
+
+if (!running) {
+  program.help()
+}
