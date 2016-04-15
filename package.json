@@ -12,7 +12,7 @@
     "url": "git+https://github.com/benstepp/tays.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/babel lib --out-dir dist/ --source-maps inline; node_modules/.bin/babel bin/* --out-dir dist --source-maps inline",
+    "build": "node_modules/.bin/babel lib --out-dir dist/ --source-maps inline;",
     "test": "node_modules/.bin/mocha 'test/**/*_test.js' --harmony-proxies --reporter dot --require test/test_helper.js",
     "test-watch": "node_modules/.bin/mocha 'test/**/*_test.js' --harmony-proxies --reporter dot --require test/test_helper.js --watch",
     "coverage": "node_modules/.bin/istanbul cover _mocha -- 'test/**/*_test.js' --harmony-proxies --reporter dot --require test/test_helper.js; open coverage/lcov-report/index.html",
@@ -36,8 +36,7 @@
     "chai": "^3.4.1",
     "harmony-reflect": "^1.4.2",
     "istanbul": "1.0.0-alpha.2",
-    "mocha": "^2.3.4",
-    "sinon": "^1.17.3"
+    "mocha": "^2.3.4"
   },
   "dependencies": {
     "bluebird": "^3.3.4",

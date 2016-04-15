@@ -35,4 +35,16 @@ describe('CREATE TABLE', () => {
       postgresql: 'CREATE TABLE "users" ("email" varchar(100), "created_at" timestamps)'
     })
   })
+
+  describe('with a primary key', () => {
+    const users = new Sequel.Relation('users')
+    const email = users.column('email').varchar(100)
+    const id = users.column('id').primary_key()
+    const ast = users.create().columns(email, id)
+
+    feature({
+      ast: [ast],
+      postgresql: 'CREATE TABLE "users" ("email" varchar(100), "id" serial primary key)'
+    })
+  })
 })
