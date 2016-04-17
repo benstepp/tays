@@ -27,7 +27,7 @@ describe('CREATE TABLE', () => {
   describe('with multiple attributes', () => {
     const users = new Sequel.Relation('users')
     const email = users.column('email').varchar(100)
-    const created_at = users.column('created_at').date()
+    const created_at = users.column('created_at').datetime()
     const ast = users.create().columns(email, created_at)
 
     feature({
