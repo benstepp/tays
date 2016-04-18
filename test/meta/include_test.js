@@ -63,4 +63,15 @@ describe('include', () => {
     expect(C.b).to.be.a('function')
     expect(C.b()).to.eq('b')
   })
+
+  it('can add symbol propertyies', () => {
+    const a = Symbol()
+    class A { static [a]() { return 'a' } }
+    @include(A)
+    class B {}
+
+    expect(() => B[a]()).to.not.throw(Error)
+    expect(B[a]).to.be.a('function')
+    expect(B[a]()).to.eq('a')
+  })
 })
