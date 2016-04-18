@@ -9,12 +9,6 @@ describe('Registry', () => {
     it('always returns an object', () => {
       expect(Registry.models).to.exist
       expect(Registry.models).to.be.a('object')
-
-      Registry.models = null
-      expect(Registry.models).to.be.a('object')
-
-      Registry.models = 42
-      expect(Registry.models).to.be.a('object')
     })
   })
 
