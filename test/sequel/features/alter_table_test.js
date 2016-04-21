@@ -70,4 +70,26 @@ describe('ALTER TABLE', () => {
       postgresql: 'ALTER TABLE "users" ALTER COLUMN "email" DROP DEFAULT, DROP COLUMN "dumpster"'
     })
   })
+
+  describe('add column no nulls', () => {
+    const users = new Sequel.Relation('users')
+    const email = users.column('email').null(false)
+    const ast = users.alter().add(email)
+
+    feature({
+      ast: [ast],
+      postgresql: 'ALTER TABLE "users" ADD COLUMN "email" NOT NULL'
+    })
+  })
+
+  describe('alter column drop not null', () => {
+    const users = new Sequel.Relation('users')
+    const email = users.column('email').null(false)
+    const ast = users.alter().alter(email)
+
+    feature({
+      ast: [ast],
+      postgresql: 'ALTER TABLE "users" ALTER COLUMN "email" DROP NOT NULL'
+    })
+  })
 })
