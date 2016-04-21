@@ -46,4 +46,16 @@ describe('ALTER TABLE', () => {
       postgresql: 'ALTER TABLE "users" ADD COLUMN "email" varchar(100), DROP COLUMN "dumpster"'
     })
   })
+
+  describe('drop column and alter column default', () => {
+    const users = new Sequel.Relation('users')
+    const email = users.column('email').default('iamthebest@fightingdragonswithtaylorswift.com')
+    const dumpster = users.column('dumpster')
+    const ast = users.alter().alter(email).drop(dumpster)
+
+    feature({
+      ast: [ast],
+      postgresql: 'ALTER TABLE "users" ALTER COLUMN "email" SET DEFAULT \'iamthebest@fightingdragonswithtaylorswift.com\', DROP COLUMN "dumpster"'
+    })
+  })
 })
