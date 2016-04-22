@@ -102,4 +102,15 @@ describe('ALTER TABLE', () => {
       postgresql: 'ALTER TABLE "things" RENAME TO "stuffs"'
     })
   })
+
+  describe('rename a column', () => {
+    const users = new Sequel.Relation('users')
+    const email = users.column('stuffs').rename('things')
+    const ast = users.alter().alter(email)
+
+    feature({
+      ast: [ast],
+      postgresql: 'ALTER TABLE "users" RENAME COLUMN "stuffs" TO "things"'
+    })
+  })
 })
