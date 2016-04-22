@@ -17,4 +17,14 @@ describe('AlterTableStatementFactory', () => {
     expect(includes(statement, 'ADD COLUMN')).to.eq(true)
     expect(includes(statement, 'email')).to.eq(true)
   })
+
+  it('can rename a table', () => {
+    const factory = new AlterTableStatementFactory('users', {}, t => {
+      t.rename('things')
+    })
+    const statement = factory.statement
+    expect(includes(statement, 'ALTER TABLE')).to.eq(true)
+    expect(includes(statement, 'RENAME TO')).to.eq(true)
+    expect(includes(statement, '"things"')).to.eq(true)
+  })
 })

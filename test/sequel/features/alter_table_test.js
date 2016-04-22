@@ -92,4 +92,14 @@ describe('ALTER TABLE', () => {
       postgresql: 'ALTER TABLE "users" ALTER COLUMN "email" DROP NOT NULL'
     })
   })
+
+  describe('rename table', () => {
+    const users = new Sequel.Relation('things')
+    const ast = users.alter().rename('stuffs')
+
+    feature({
+      ast: [ast],
+      postgresql: 'ALTER TABLE "things" RENAME TO "stuffs"'
+    })
+  })
 })
