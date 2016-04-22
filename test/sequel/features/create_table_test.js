@@ -1,4 +1,3 @@
-
 import * as Sequel from '../../../lib/sequel'
 import { feature } from '../support'
 
