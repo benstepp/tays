@@ -13,4 +13,22 @@ describe('DropTableStatementFactory', () => {
     const statement = factory.statement
     expect(includes(statement, 'CASCADE')).to.eq(true)
   })
+
+  it('can not cascade', () => {
+    const factory = new DropTableStatementFactory('users', { cascade: false })
+    const statement = factory.statement
+    expect(includes(statement, 'CASCADE')).to.eq(false)
+  })
+
+  it('can restrict', () => {
+    const factory = new DropTableStatementFactory('users', { restrict: true })
+    const statement = factory.statement
+    expect(includes(statement, 'RESTRICT')).to.eq(true)
+  })
+
+  it('can if exists', () => {
+    const factory = new DropTableStatementFactory('users', { if_exists: true })
+    const statement = factory.statement
+    expect(includes(statement, 'IF EXISTS')).to.eq(true)
+  })
 })
