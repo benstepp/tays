@@ -14,24 +14,24 @@ describe('CREATE TABLE', () => {
 
   describe('with a attribute', () => {
     const users = new Sequel.Relation('users')
-    const email = users.column('email').varchar(100)
+    const email = users.column('email').varchar()
     const ast = users.create().columns(email)
 
     feature({
       ast: [ast],
-      postgresql: 'CREATE TABLE "users" ("email" varchar(100))'
+      postgresql: 'CREATE TABLE "users" ("email" character varying)'
     })
   })
 
   describe('with multiple attributes', () => {
     const users = new Sequel.Relation('users')
-    const email = users.column('email').varchar(100)
+    const email = users.column('email').varchar()
     const created_at = users.column('created_at').datetime()
     const ast = users.create().columns(email, created_at)
 
     feature({
       ast: [ast],
-      postgresql: 'CREATE TABLE "users" ("email" varchar(100), "created_at" timestamps)'
+      postgresql: 'CREATE TABLE "users" ("email" character varying, "created_at" timestamps)'
     })
   })
 
@@ -43,7 +43,7 @@ describe('CREATE TABLE', () => {
 
     feature({
       ast: [ast],
-      postgresql: 'CREATE TABLE "users" ("email" varchar(100), "id" serial primary key)'
+      postgresql: 'CREATE TABLE "users" ("email" character varying(100), "id" serial primary key)'
     })
   })
 
@@ -64,7 +64,7 @@ describe('CREATE TABLE', () => {
 
     feature({
       ast: [ast],
-      postgresql: 'CREATE TABLE "users" ("email" varchar(100) UNIQUE)'
+      postgresql: 'CREATE TABLE "users" ("email" character varying(100) UNIQUE)'
     })
   })
 })

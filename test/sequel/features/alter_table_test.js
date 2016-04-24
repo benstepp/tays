@@ -14,12 +14,12 @@ describe('ALTER TABLE', () => {
 
   describe('with a attribute', () => {
     const users = new Sequel.Relation('users')
-    const email = users.column('email').varchar(100)
+    const email = users.column('email').varchar()
     const ast = users.alter().add(email)
 
     feature({
       ast: [ast],
-      postgresql: 'ALTER TABLE "users" ADD COLUMN "email" varchar(100)'
+      postgresql: 'ALTER TABLE "users" ADD COLUMN "email" character varying'
     })
   })
 
@@ -31,19 +31,19 @@ describe('ALTER TABLE', () => {
 
     feature({
       ast: [ast],
-      postgresql: 'ALTER TABLE "users" ADD COLUMN "email" varchar(100), ADD COLUMN "created_at" timestamps'
+      postgresql: 'ALTER TABLE "users" ADD COLUMN "email" character varying(100), ADD COLUMN "created_at" timestamps'
     })
   })
 
   describe('adding and dropping', () => {
     const users = new Sequel.Relation('users')
-    const email = users.column('email').varchar(100)
+    const email = users.column('email').varchar()
     const dumpster = users.column('dumpster')
     const ast = users.alter().add(email).drop(dumpster)
 
     feature({
       ast: [ast],
-      postgresql: 'ALTER TABLE "users" ADD COLUMN "email" varchar(100), DROP COLUMN "dumpster"'
+      postgresql: 'ALTER TABLE "users" ADD COLUMN "email" character varying, DROP COLUMN "dumpster"'
     })
   })
 
