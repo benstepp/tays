@@ -35,4 +35,10 @@ describe('CreateTableStatementFactory', () => {
     expect(includes(statement, 'created_at')).to.eq(true)
     expect(includes(statement, 'updated_at')).to.eq(true)
   })
+
+  it('can create TEMPORARY tables', () => {
+    const factory = new CreateTableStatementFactory('users', { temporary: true })
+    const statement = factory.statement
+    expect(includes(statement, 'TEMPORARY')).to.eq(true)
+  })
 })

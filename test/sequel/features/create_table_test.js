@@ -46,4 +46,14 @@ describe('CREATE TABLE', () => {
       postgresql: 'CREATE TABLE "users" ("email" varchar(100), "id" serial primary key)'
     })
   })
+
+  describe('a temporary table', () => {
+    const users = new Sequel.Relation('users')
+    const ast = users.create().temporary()
+
+    feature({
+      ast: [ast],
+      postgresql: 'CREATE TEMPORARY TABLE "users"'
+    })
+  })
 })
