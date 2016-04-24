@@ -56,4 +56,15 @@ describe('CREATE TABLE', () => {
       postgresql: 'CREATE TEMPORARY TABLE "users"'
     })
   })
+
+  describe('unique constraint', () => {
+    const users = new Sequel.Relation('users')
+    const email = users.column('email').varchar(100).unique()
+    const ast = users.create().columns(email)
+
+    feature({
+      ast: [ast],
+      postgresql: 'CREATE TABLE "users" ("email" varchar(100) UNIQUE)'
+    })
+  })
 })

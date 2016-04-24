@@ -41,4 +41,12 @@ describe('CreateTableStatementFactory', () => {
     const statement = factory.statement
     expect(includes(statement, 'TEMPORARY')).to.eq(true)
   })
+
+  it('can create unique constraints', () => {
+    const factory = new CreateTableStatementFactory('users', {}, function(t) {
+      t.string('email', { unique: true })
+    })
+    const statement = factory.statement
+    expect(includes(statement, 'UNIQUE')).to.eq(true)
+  })
 })
