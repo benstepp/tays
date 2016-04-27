@@ -12,10 +12,9 @@
     "url": "git+https://github.com/benstepp/tays.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/babel lib --out-dir dist/ --source-maps inline;",
-    "test": "node_modules/.bin/mocha 'test/**/*_test.js' --harmony-proxies --reporter dot --require test/test_helper.js",
-    "test-watch": "node_modules/.bin/mocha 'test/**/*_test.js' --harmony-proxies --reporter dot --require test/test_helper.js --watch",
-    "coverage": "node_modules/.bin/istanbul cover _mocha -- 'test/**/*_test.js' --harmony-proxies --reporter dot --require test/test_helper.js; open coverage/lcov-report/index.html",
+    "build": "make build",
+    "test": "make test",
+    "coverage": "make coverage",
     "prepublish": "npm run test && npm run build"
   },
   "keywords": [
