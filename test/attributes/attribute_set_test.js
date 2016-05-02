@@ -37,4 +37,14 @@ describe('AttributeSet', () => {
       expect(match_array(attributes.keys, ['answer', 'things', 'stuffs'])).to.eq(true)
     })
   })
+
+  describe('#assign', () => {
+    it('can assign multiple attributes', () => {
+      const attributes = new AttributeSet()
+      attributes.assign({ answer: 42, best: 'me' })
+
+      expect(attributes.get('answer')).to.eq(42)
+      expect(attributes.get('best')).to.eq('me')
+    })
+  })
 })
