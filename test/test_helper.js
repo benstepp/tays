@@ -5,9 +5,7 @@ require('babel-register')({
     'transform-decorators-legacy',
     'transform-async-to-generator',
     'transform-es2015-modules-commonjs',
-    'transform-es2015-parameters',
     'transform-export-extensions',
-    'transform-es2015-destructuring'
   ]
 })
 
