@@ -64,11 +64,4 @@ describe('Migrator', () => {
       expect(Migrator.last_migration.version).to.eq(last_version)
     })
   })
-
-  describe('connection', () => {
-    it('delegates connection to ActiveRecord.Base', () => {
-      expect(Migrator.connection).to.exist
-      expect(Migrator.connection).to.eq(ActiveRecord.Base.connection)
-    })
-  })
 })

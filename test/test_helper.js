@@ -11,3 +11,6 @@ require('babel-register')({
 
 global.Reflect = require('harmony-reflect')
 global.expect = require('chai').expect
+
+const { Base } = require('../lib/base')
+Base.configure()
