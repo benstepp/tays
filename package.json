@@ -35,6 +35,8 @@
     "harmony-reflect": "^1.4.2",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "^2.3.4",
+    "pg": "^4.5.5",
+    "pg-native": "^1.10.0",
     "sinon": "^1.17.3"
   },
   "dependencies": {
