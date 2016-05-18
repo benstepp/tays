@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["standard"],
+  "rules": {
+    "space-before-function-paren": [2, "never"],
+    "no-duplicate-imports": [0],
+    "camelcase": [0]
+  },
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "expect": false
+  }
+}
