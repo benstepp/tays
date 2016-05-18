@@ -1,4 +1,4 @@
-import * as Tays from '../../lib'
+import * as Tays from 'lib'
 
 const decorators = [
   'has_many',

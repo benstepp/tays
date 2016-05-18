@@ -1,4 +1,4 @@
-import { ActiveRecord, belongs_to } from '../../lib'
+import { ActiveRecord, belongs_to } from 'lib'
 
 describe('belongs_to', () => {
   it('adds getters and setters on the klass with the name of the relation', () => {

@@ -1,4 +1,4 @@
-import { ConfigResolver } from '../../lib/connection'
+import { ConfigResolver } from 'lib/connection'
 
 describe('ConfigResolver', () => {
   it('exists', () => {

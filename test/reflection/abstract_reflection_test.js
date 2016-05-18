@@ -1,5 +1,5 @@
-import { ActiveRecord, belongs_to } from '../../lib'
-import { AbstractReflection } from '../../lib/reflection'
+import { ActiveRecord, belongs_to } from 'lib'
+import { AbstractReflection } from 'lib/reflection'
 
 describe('AbstractReflection', () => {
   it('exists as class', () => {

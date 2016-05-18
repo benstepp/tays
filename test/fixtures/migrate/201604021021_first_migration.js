@@ -1,4 +1,4 @@
-import { ActiveRecord } from '../../../lib'
+import { ActiveRecord } from 'lib'
 
 class FirstMigration extends ActiveRecord.Migration {
 

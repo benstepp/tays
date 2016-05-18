@@ -1,5 +1,5 @@
-import * as Sequel from '../../../lib/sequel'
-import { feature } from '../support'
+import * as Sequel from 'lib/sequel'
+import { feature } from 'test/support'
 
 describe('Select Count', () => {
   describe('simple row count', () => {

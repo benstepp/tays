@@ -1,4 +1,4 @@
-import { AlterTableStatementFactory } from '../../lib/schema'
+import { AlterTableStatementFactory } from 'lib/schema'
 import { includes } from 'lodash'
 
 describe('AlterTableStatementFactory', () => {

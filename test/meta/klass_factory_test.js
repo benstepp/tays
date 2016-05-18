@@ -1,5 +1,5 @@
-import { KlassFactory } from '../../lib/meta'
-import { PrototypeChain } from '../../lib/meta'
+import { KlassFactory } from 'lib/meta'
+import { PrototypeChain } from 'lib/meta'
 import { isEqual as match_array } from 'lodash'
 import { drop } from 'lodash'
 

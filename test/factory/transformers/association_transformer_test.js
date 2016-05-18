@@ -1,4 +1,4 @@
-import { AssociationTransformer } from '../../../lib/factory/transformers'
+import { AssociationTransformer } from 'lib/factory/transformers'
 
 describe('AssociationTranfomrmer', () => {
   it('exists as a class', () => {

@@ -1,7 +1,7 @@
-import { ActiveRecord } from '../../lib'
-import { include } from '../../lib/meta'
-import { Callbacks } from '../../lib/callbacks'
-import { CallbackManager } from '../../lib/callbacks'
+import { ActiveRecord } from 'lib'
+import { include } from 'lib/meta'
+import { Callbacks } from 'lib/callbacks'
+import { CallbackManager } from 'lib/callbacks'
 import { spy } from 'sinon'
 
 describe('Callbacks', () => {

@@ -1,6 +1,6 @@
-import { ActiveRecord, belongs_to, has_many } from '../lib'
-import { Reflection } from '../lib/reflection'
-import { BelongsToDefinition } from '../lib/decorators/definitions'
+import { ActiveRecord, belongs_to, has_many } from 'lib'
+import { Reflection } from 'lib/reflection'
+import { BelongsToDefinition } from 'lib/decorators/definitions'
 
 describe('Reflection', () => {
   describe('#reflections', () => {

@@ -1,4 +1,4 @@
-import ActiveRecord from '../../lib'
+import ActiveRecord from 'lib'
 import { includes } from 'lodash'
 
 class TestMigration extends ActiveRecord.Migration {

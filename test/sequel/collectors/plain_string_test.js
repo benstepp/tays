@@ -1,4 +1,4 @@
-import * as Sequel from '../../../lib/sequel'
+import * as Sequel from 'lib/sequel'
 
 const PlainString = Sequel.Collectors.PlainString
 

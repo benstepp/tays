@@ -1,4 +1,4 @@
-import { include } from '../../lib/meta'
+import { include } from 'lib/meta'
 import { isEqual as match_array } from 'lodash'
 
 describe('include', () => {

@@ -1,5 +1,5 @@
 import { isEqual as match_array } from 'lodash'
-import { AttributeSet } from '../../lib/attributes'
+import { AttributeSet } from 'lib/attributes'
 
 describe('AttributeSet', () => {
   it('exists', () => {

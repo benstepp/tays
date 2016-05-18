@@ -1,4 +1,4 @@
-import { CallbackManager } from '../../lib/callbacks'
+import { CallbackManager } from 'lib/callbacks'
 import { spy } from 'sinon'
 
 describe('CallbackManager', () => {

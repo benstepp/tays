@@ -1,4 +1,4 @@
-import { DropTableStatementFactory } from '../../lib/schema'
+import { DropTableStatementFactory } from 'lib/schema'
 import { includes } from 'lodash'
 
 describe('DropTableStatementFactory', () => {

@@ -1,5 +1,5 @@
-import { ActiveRecord } from '../../lib'
-import { before_validation } from '../../lib'
+import { ActiveRecord } from 'lib'
+import { before_validation } from 'lib'
 
 describe('AddingCallbacks', () => {
   it('adds the callbacks', () => {

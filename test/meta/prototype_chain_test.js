@@ -1,4 +1,4 @@
-import { PrototypeChain } from '../../lib/meta'
+import { PrototypeChain } from 'lib/meta'
 import { last } from 'lodash'
 import { isEqual as match_array } from 'lodash'
 import { head as first } from 'lodash'

@@ -1,4 +1,4 @@
-import { Registry } from '../lib/registry'
+import { Registry } from 'lib/registry'
 
 describe('Registry', () => {
   it('exists', () => {

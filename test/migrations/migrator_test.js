@@ -1,5 +1,5 @@
-import { Migrator } from '../../lib/migrations'
-import { ActiveRecord } from '../../lib'
+import { Migrator } from 'lib/migrations'
+import { ActiveRecord } from 'lib'
 
 describe('Migrator', () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import { PostgresqlVisitor } from '../../../lib/sequel/visitors'
+import { PostgresqlVisitor } from 'lib/sequel/visitors'
 
 function feature(test) {
   if (Array.isArray(test.ast)) {

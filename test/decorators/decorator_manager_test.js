@@ -1,5 +1,5 @@
-import { Definition } from '../../lib/decorators/definitions'
-import { DecoratorManager } from '../../lib/decorators/decorator_manager'
+import { Definition } from 'lib/decorators/definitions'
+import { DecoratorManager } from 'lib/decorators/decorator_manager'
 import { includes } from 'lodash'
 
 describe('DecoratorManager', () => {
